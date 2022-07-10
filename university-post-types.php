@@ -2,7 +2,9 @@
     function university_post_types() {
         //Campus Post Type
         register_post_type('campus', array(
-            'supports' => array('title', 'editor'),
+            'capability_type' => 'campus',
+            'map_meta_cap' => true,
+            'supports' => array('title'),
             'rewrite' => array('slug' => 'campuses'),
             'has_archive' => true,
             'public' => true,
@@ -20,7 +22,9 @@
 
         //Event Post Type
         register_post_type('event', array(
-            'supports' => array('title', 'editor'),
+            'capability_type' => 'event',
+            'map_meta_cap' => true,
+            'supports' => array('title'),
             'rewrite' => array('slug' => 'events'),
             'has_archive' => true,
             'public' => true,
@@ -30,7 +34,6 @@
                 'edit_item' => 'Edit Events',
                 'all_items' => 'All Events',
                 'Singular_name' => 'Event',
-
             ),
             'menu_icon' => 'dashicons-calendar'
         ));
@@ -55,7 +58,7 @@
         //Professor Post Type
         register_post_type('professor', array(
             'show_in_rest' => true,
-            'supports' => array('title', 'editor', 'thumbnail'),
+            'supports' => array('title', 'thumbnail'),
             'public' => true,
             'labels' => array(
                 'name' => 'Professors',
@@ -67,6 +70,27 @@
             ),
             'menu_icon' => 'dashicons-welcome-learn-more'
         ));
+
+         //Notes Post Type
+         register_post_type('notes', array(
+            'capability_type' => 'notes',
+            'map_meta_cap' => true,
+            'show_in_rest' => true,
+            'supports' => array('title', 'editor'),
+            'public' => false,
+            'show_ui' => true,
+            'labels' => array(
+                'name' => 'Notes',
+                'add_new_item' => 'Add New Note',
+                'edit_item' => 'Edit Note',
+                'all_items' => 'All Notes',
+                'Singular_name' => 'Note',
+
+            ),
+            'menu_icon' => 'dashicons-welcome-write-blog'
+        ));
+
+
 
     }
 
