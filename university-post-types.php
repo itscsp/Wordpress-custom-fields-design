@@ -90,6 +90,23 @@
             'menu_icon' => 'dashicons-welcome-write-blog'
         ));
 
+         //Likes Post Type
+         register_post_type('like', array(
+
+            'supports' => array('title'),
+            'public' => false,
+            'show_ui' => true,
+            'labels' => array(
+                'name' => 'Likes',
+                'add_new_item' => 'Add New Like',
+                'edit_item' => 'Edit Like',
+                'all_items' => 'All Likes',
+                'Singular_name' => 'Like',
+
+            ),
+            'menu_icon' => 'dashicons-heart'
+        ));
+
 
 
     }
